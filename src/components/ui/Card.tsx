@@ -14,11 +14,11 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
     
     const variants = {
       default: 'bg-card border-border',
-      glass: 'bg-card/50 backdrop-blur-md border-white/10 shadow-2xl shadow-teal-500/10',
+      glass: 'bg-card/50 backdrop-blur-md border-white/10 shadow-2xl shadow-blue-500/10',
       elevated: 'bg-card border-border shadow-lg hover:shadow-xl',
     };
 
-    const hoverClasses = hover ? 'hover:border-teal-500/50 hover:scale-105 hover:shadow-lg hover:shadow-teal-500/10' : '';
+    const hoverClasses = hover ? 'hover:border-blue-500/50 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10' : '';
 
     return (
       <div

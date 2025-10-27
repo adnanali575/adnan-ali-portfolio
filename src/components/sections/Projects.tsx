@@ -1,89 +1,84 @@
 'use client';
 
 import { ExternalLink, Github, Calendar, Tag } from 'lucide-react';
+import Image from 'next/image';
+import gymManagerImage from '@/assets/screenshots/gym-manager.png';
+import rentalManagerImage from '@/assets/screenshots/rental-manager.png';
+import gbtoursImage from '@/assets/screenshots/gb-tours.png'
 
 export function Projects() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution built with Next.js, TypeScript, and Stripe integration. Features include user authentication, product management, shopping cart, and payment processing.',
-      image: '/api/placeholder/600/400',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'PostgreSQL'],
+      title: 'Cloud Gym Manager',
+      description: 'A comprehensive cloud-based gym management platform for managing members, classes, trainers, equipment, payments, and reservations. Features include automated billing, membership management, class scheduling, payment processing, trainer management, and comprehensive reporting with analytics dashboard.',
+      image: gymManagerImage,
+      technologies: ['Vue.js', 'Vuetify', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Pinia'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
       date: '2024',
-      featured: true,
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: '/api/placeholder/600/400',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
+      title: 'Cloud Rental Manager',
+      description: 'A full-featured cloud-based property rental management system for managing properties, tenants, landlords, leases, work orders, and payments. Features include tenant portal, automated lease management, payment processing, maintenance tracking, document management, and comprehensive reporting.',
+      image: rentalManagerImage,
+      technologies: ['React', 'MUI', 'Bootstrap', 'Node.js', 'Express', 'MongoDB', 'JWT'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
       date: '2024',
-      featured: true,
     },
     {
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard that displays current weather conditions, forecasts, and interactive maps with location-based data.',
-      image: '/api/placeholder/600/400',
-      technologies: ['React', 'OpenWeather API', 'Chart.js', 'CSS3'],
+      title: 'GB Tours - Tourism Platform',
+      description: 'A full-stack tourism and hospitality platform connecting tourists with local guides and hotels. Features include tour booking, hotel reservations, real-time chat, payment processing with Stripe, review system, guide profile management, and itinerary planning.',
+      image: gbtoursImage,
+      technologies: ['Vue.js', 'PrimeVue', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Stripe', 'JWT'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-      date: '2023',
-      featured: false,
+      date: '2024',
     },
     {
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website showcasing projects, skills, and experience with smooth animations and dark mode support.',
+      title: 'Hotel Management System (HMS)',
+      description: 'A comprehensive hotel management solution for managing rooms, bookings, guests, menu orders, employees, and financial operations. Features include room reservation system, restaurant management with table ordering, customer tracking, profit/loss reports, employee management, and ledger systems.',
       image: '/api/placeholder/600/400',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      technologies: ['Next.js', 'TypeScript', 'React', 'Tailwind CSS', 'Radix UI', 'PostgreSQL', 'Sequelize', 'Express', 'JWT'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-      date: '2023',
-      featured: false,
+      date: '2024',
     },
     {
-      title: 'Blog Platform',
-      description: 'A content management system for bloggers with markdown support, SEO optimization, and admin dashboard.',
+      title: 'Qadeem Crafts - E-Commerce Platform',
+      description: 'A modern e-commerce platform for traditional handicrafts featuring product management, shopping cart, order processing, admin dashboard, payment integration, and customer management. Built with Next.js and MySQL database.',
       image: '/api/placeholder/600/400',
-      technologies: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL', 'Vercel'],
+      technologies: ['Next.js', 'React', 'Tailwind CSS', 'MySQL', 'Sequelize', 'Stripe', 'JWT', 'AWS S3'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-      date: '2023',
-      featured: false,
+      date: '2024',
     },
     {
-      title: 'Chat Application',
-      description: 'A real-time chat application with private messaging, group chats, file sharing, and message encryption.',
+      title: 'OUI - OpenWrt Web Interface (Frontend Development)',
+      description: 'Frontend development for an OpenWrt web interface framework using Vue.js and Tailwind CSS. Built responsive and interactive UI components and pages including system management, user management, ACL configuration, backup system, DHCP lease tracking, and station management modules. Utilized Vue Router for navigation, i18n for internationalization, and Vite for build optimization.',
       image: '/api/placeholder/600/400',
-      technologies: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'JWT'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
-      date: '2023',
-      featured: false,
+      technologies: ['Vue.js', 'Tailwind CSS', 'Vite', 'Vue Router', 'i18n', 'JavaScript'],
+      githubUrl: 'https://github.com/zhaojh329/oui',
+      liveUrl: 'https://zhaojh329.github.io/oui/',
+      date: '2024',
     },
   ];
-
-  const featuredProjects = projects.filter(project => project.featured);
-  const otherProjects = projects.filter(project => !project.featured);
 
   return (
     <section id="projects" className="py-20 bg-card/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Featured <span className="text-teal-500">Projects</span>
+            My <span className="text-blue-500">Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my recent work and side projects
+            A showcase of my recent full-stack development work
           </p>
         </div>
 
-        {/* Featured Projects */}
-        <div className="space-y-16 mb-20">
-          {featuredProjects.map((project, index) => (
+        {/* Projects */}
+        <div className="space-y-16">
+          {projects.map((project, index) => (
             <div
               key={index}
               className={`grid lg:grid-cols-2 gap-8 items-center ${
@@ -92,15 +87,25 @@ export function Projects() {
             >
               <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="relative group">
-                  <div className="aspect-video rounded-lg bg-linear-to-br from-teal-500/20 to-violet-500/20 p-1">
-                    <div className="w-full h-full rounded-lg bg-card flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-4 bg-teal-500/10 rounded-lg flex items-center justify-center">
-                          <Tag className="w-8 h-8 text-teal-500" />
+                  <div className="aspect-video rounded-lg bg-linear-to-br from-blue-500/20 to-sky-500/20 p-1 overflow-hidden">
+                    {project.image && project.image !== '/api/placeholder/600/400' ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded-lg bg-card flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-4 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                            <Tag className="w-8 h-8 text-blue-500" />
+                          </div>
+                          <p className="text-muted-foreground">Project Screenshot</p>
                         </div>
-                        <p className="text-muted-foreground">Project Screenshot</p>
                       </div>
-                    </div>
+                    )}
                   </div>
                   <div className="absolute inset-0 rounded-lg bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center space-x-4">
                     <a
@@ -138,7 +143,7 @@ export function Projects() {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 text-xs font-medium bg-teal-500/10 text-teal-500 rounded-full"
+                      className="px-3 py-1 text-xs font-medium bg-blue-500/10 text-blue-500 rounded-full"
                     >
                       {tech}
                     </span>
@@ -149,7 +154,7 @@ export function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-foreground hover:text-teal-500 transition-colors"
+                    className="flex items-center space-x-2 text-foreground hover:text-blue-500 transition-colors"
                   >
                     <Github className="w-5 h-5" />
                     <span>Code</span>
@@ -158,7 +163,7 @@ export function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-foreground hover:text-teal-500 transition-colors"
+                    className="flex items-center space-x-2 text-foreground hover:text-blue-500 transition-colors"
                   >
                     <ExternalLink className="w-5 h-5" />
                     <span>Live Demo</span>
@@ -167,73 +172,6 @@ export function Projects() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Other Projects */}
-        <div>
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
-            Other Projects
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherProjects.map((project, index) => (
-              <div
-                key={index}
-                className="group p-6 rounded-lg bg-card border border-border hover:border-teal-500/50 transition-all duration-200"
-              >
-                <div className="aspect-video rounded-lg bg-linear-to-br from-teal-500/20 to-violet-500/20 p-1 mb-4">
-                  <div className="w-full h-full rounded-lg bg-background/50 flex items-center justify-center">
-                    <Tag className="w-8 h-8 text-teal-500" />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-foreground group-hover:text-teal-500 transition-colors">
-                      {project.title}
-                    </h4>
-                    <span className="text-xs text-muted-foreground">
-                      {project.date}
-                    </span>
-                  </div>
-                  <p className="text-sm text-muted-foreground line-clamp-3">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 3).map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-1 text-xs bg-secondary text-muted-foreground rounded">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex space-x-4 pt-2">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground hover:text-teal-500 transition-colors"
-                    >
-                      Code
-                    </a>
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-muted-foreground hover:text-teal-500 transition-colors"
-                    >
-                      Demo
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

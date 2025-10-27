@@ -1,110 +1,165 @@
-'use client';
+"use client";
 
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { SimpleAnimatedHero } from "@/components/SimpleAnimatedHero";
+import { UpworkIcon } from "@/components/icons/UpworkIcon";
+import { TeamsIcon } from "@/components/icons/TeamsIcon";
 
 export function Hero() {
-  const scrollToNext = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
       {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-linear-to-br from-background via-background to-teal-500/5" />
-      <div className="absolute inset-0 bg-linear-to-tl from-violet-500/5 via-transparent to-cyan-500/5 animate-pulse" />
-      
+      <div className="absolute inset-0 bg-linear-to-br from-background via-background to-blue-500/5" />
+      <div className="absolute inset-0 bg-linear-to-tl from-blue-600/5 via-transparent to-sky-500/5 animate-pulse" />
+
       {/* Floating animated elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-60 h-60 bg-cyan-500/5 rounded-full blur-2xl animate-pulse delay-500" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/4 w-60 h-60 bg-sky-500/5 rounded-full blur-2xl animate-pulse delay-500" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="space-y-8">
-          {/* Greeting */}
-          <div className="space-y-4">
-            <p className="text-lg text-muted-foreground animate-fade-in">
-              Hello, I'm
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground animate-fade-in-up">
-              <span className="relative">
-                <span className="bg-linear-to-r from-teal-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent animate-pulse">
-                  Adnan Ali
-                </span>
-                {/* Glowing text effect */}
-                <span className="absolute inset-0 bg-linear-to-r from-teal-500 via-cyan-500 to-violet-500 bg-clip-text text-transparent blur-sm opacity-50 animate-pulse">
-                  Adnan Ali
-                </span>
-              </span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl text-muted-foreground font-medium animate-fade-in-up delay-200">
-              Full Stack Developer
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-300">
-              I build fast, modern, and scalable web apps.
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-400">
-            <button
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative px-8 py-3 bg-teal-500 hover:bg-teal-600 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-background overflow-hidden"
-            >
-              <span className="relative z-10">View My Work</span>
-              <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            </button>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-3 border border-border hover:bg-accent text-foreground font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-            >
-              Get In Touch
-            </button>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center space-x-6 animate-fade-in-up delay-500">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
-              aria-label="GitHub"
-            >
-              <Github className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </a>
-            <a
-              href="mailto:adnan.ali@example.com"
-              className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <button
-            onClick={scrollToNext}
-            className="p-2 rounded-full bg-secondary hover:bg-accent transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
-            aria-label="Scroll to next section"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Responsive Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh]">
+          {/* Left Side - Text Content */}
+          <motion.div 
+            className="text-center lg:text-left space-y-8"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <ArrowDown className="w-6 h-6 text-muted-foreground" />
-          </button>
+            {/* Greeting */}
+            <div className="space-y-4">
+              <motion.p 
+                className="text-lg text-muted-foreground"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                Hello, I'm
+              </motion.p>
+              <motion.h1 
+                className="text-5xl md:text-7xl font-bold text-foreground"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <span className="relative">
+                  <span className="text-blue-500">Adnan Ali</span>
+                </span>
+              </motion.h1>
+              <motion.h2 
+                className="text-2xl md:text-3xl text-muted-foreground font-medium"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                Full Stack Developer
+              </motion.h2>
+              <motion.p 
+                className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                I build fast, modern, and scalable web apps.
+              </motion.p>
+            </div>
+
+            {/* CTA Buttons */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("projects")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="group relative px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-background overflow-hidden"
+                title="View My Work"
+              >
+                <span className="relative z-10">View My Work</span>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("contact")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="px-8 py-3 border border-border hover:bg-accent text-foreground font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                title="Get In Touch"
+              >
+                Get In Touch
+              </button>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div 
+              className="flex justify-center lg:justify-start space-x-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <a
+                href="https://github.com/adnanali575"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <Github className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
+              <a
+                href="https://www.upwork.com/freelancers/~019ce1d5335435b63e?mp_source=share"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
+                aria-label="Upwork"
+                title="Upwork"
+              >
+                <UpworkIcon className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
+              <a
+                href="https://teams.microsoft.com/l/chat/0/0?users=adnanali25753@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
+                aria-label="Microsoft Teams"
+                title="Microsoft Teams"
+              >
+                <TeamsIcon className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
+              <a
+                href="mailto:adnanali25753@gmail.com"
+                className="p-3 rounded-lg bg-secondary hover:bg-accent transition-all duration-200 group hover:scale-110"
+                aria-label="Email"
+                title="Email"
+              >
+                <Mail className="w-6 h-6 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right Side - Animation */}
+          <motion.div 
+            className="flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          >
+            <SimpleAnimatedHero className="w-full max-w-md lg:max-w-lg" />
+          </motion.div>
         </div>
       </div>
     </section>

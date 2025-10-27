@@ -24,7 +24,7 @@ export function SectionHeader({
         {title.split(' ').map((word, index) => (
           <span key={index}>
             {word === highlight ? (
-              <span className="text-teal-500">{word}</span>
+              <span className="text-blue-500">{word}</span>
             ) : (
               word
             )}
@@ -42,8 +42,8 @@ export function SectionHeader({
       {/* Animated underline */}
       <div className="mt-6 flex justify-center">
         <div className="relative">
-          <div className="w-24 h-1 bg-linear-to-r from-teal-500 to-violet-500 rounded-full animate-pulse" />
-          <div className="absolute inset-0 w-24 h-1 bg-linear-to-r from-teal-500 to-violet-500 rounded-full blur-sm opacity-50 animate-pulse" />
+          <div className="w-24 h-1 bg-linear-to-r from-blue-500 to-sky-500 rounded-full animate-pulse" />
+          <div className="absolute inset-0 w-24 h-1 bg-linear-to-r from-blue-500 to-sky-500 rounded-full blur-sm opacity-50 animate-pulse" />
         </div>
       </div>
     </div>

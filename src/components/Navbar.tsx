@@ -75,7 +75,7 @@ export function Navbar() {
                   onClick={() => scrollToSection(item.href)}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                     activeSection === item.href.substring(1)
-                      ? 'text-teal-500 bg-teal-500/10'
+                      ? 'text-blue-500 bg-blue-500/10'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent'
                   }`}
                 >
@@ -114,7 +114,7 @@ export function Navbar() {
                   onClick={() => scrollToSection(item.href)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 w-full text-left ${
                     activeSection === item.href.substring(1)
-                      ? 'text-teal-500 bg-teal-500/10'
+                      ? 'text-blue-500 bg-blue-500/10'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent'
                   }`}
                 >
